@@ -27,7 +27,7 @@ object L2 {
 
     def main(args: Array[String]): Unit = {
       val reflexive = forAll{
-        (a:Boolean, b:Boolean)=> (a<=a) == (a)
+        (a:Boolean, b:Boolean)=> (a<=a) == (true)
       }
       val transitive= forAll{
         (a:Boolean,b:Boolean,c:Boolean)=>((a<=b)&&(b<=c))--> (a<=c)
