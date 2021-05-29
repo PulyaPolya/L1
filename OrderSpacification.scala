@@ -1,18 +1,19 @@
 import org.scalacheck.Properties
 import org.scalacheck.Prop.forAll
+import OrderSyntax._
 
 object OrderSpecification extends Properties("Order") {
 
-   property ("reflexive") = forAll{
+   property("reflexive") = forAll{
         (a:Boolean, b:Boolean)=> (a<=a) == (true)
       }
-      property ("transitive")= forAll{
+      property("transitive")= forAll{
         (a:Boolean,b:Boolean,c:Boolean)=>((a<=b)&&(b<=c))--> (a<=c)
       }
-     property ("antisymmetric") = forAll{
+     property("antisymmetric") = forAll{
         (a:Boolean, b:Boolean)=>((a<=b)&&(b<=a))--> (b=a)
       }
-      property ("strong") = forAll{
+      property("strong") = forAll{
         (a:Boolean, b:Boolean)=>(a<=b)||(b<=a)
       }
   }
