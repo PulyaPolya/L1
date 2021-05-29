@@ -7,13 +7,16 @@ object L2 {
 
   object Order {
     implicit val booleanOrder = new Order[Boolean] {
-      override def lteq(a: Boolean, b: Boolean): Boolean = if (b == true) b else a
+      override def lteq(a: Boolean, b: Boolean): Boolean = if ((b == true) && (a == true)) true
+      else if ((b == false) && (a == true)) true
+      else if ((b == true)&&(a==false)) false
+      else true
 
     }
   }
 
   class OrderSyntax[A](a: A)(implicit H: Order[A]) {
-    def <=(b: A): Boolean = H.lteq(a, b)
+    def @*(b: A): Boolean = H.lteq(a, b)
 
   }
 
