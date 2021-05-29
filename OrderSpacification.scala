@@ -3,16 +3,16 @@ import org.scalacheck.Prop.forAll
 
 object OrderSpecification extends Properties("Order") {
 
-   val reflexive = forAll{
+   property ("reflexive") = forAll{
         (a:Boolean, b:Boolean)=> (a<=a) == (true)
       }
-      val transitive= forAll{
+      property ("transitive")= forAll{
         (a:Boolean,b:Boolean,c:Boolean)=>((a<=b)&&(b<=c))--> (a<=c)
       }
-      val antisymmetric = forAll{
+     property ("antisymmetric") = forAll{
         (a:Boolean, b:Boolean)=>((a<=b)&&(b<=a))--> (b=a)
       }
-      val strong = forAll{
+      property ("strong") = forAll{
         (a:Boolean, b:Boolean)=>(a<=b)||(b<=a)
       }
   }
