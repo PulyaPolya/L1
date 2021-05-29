@@ -1,5 +1,4 @@
-
-name := "Code"
+name := "Laba1"
 
 version := "0.1"
 
